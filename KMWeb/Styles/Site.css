@@ -123,14 +123,14 @@ first child of the left and right table columns */
     /*border-style:solid;*/
     border-right-style:solid;
     border-right-color:Blue;
-    width:63%;
+    width:73%;
     
 }
 
 .right
 {    
      float:right;
-     width:35%;
+     width:26%;
      
     /* border-style:solid;
      border-color:Black;*/

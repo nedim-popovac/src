@@ -64,6 +64,7 @@
     </Content>
     <Content Include="ArticleView.aspx" />
     <Content Include="CategoryView.aspx" />
+    <Content Include="images.jpg" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -167,7 +168,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49789</DevelopmentServerPort>
+          <DevelopmentServerPort>51615</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
