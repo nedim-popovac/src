@@ -78,6 +78,16 @@
             <td>
                 &nbsp;</td>
         </tr>
+        <tr>
+            <td class="style1">
+                <asp:Label ID="Label9" runat="server" Text="Kljucne rijeci: "></asp:Label>
+                <asp:Label ID="lblKljucneRijeci" runat="server"></asp:Label>
+            </td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
     </table>
     	
     <br />

@@ -148,6 +148,24 @@ namespace KMWeb {
         protected global::System.Web.UI.WebControls.TextBox txtDate;
         
         /// <summary>
+        /// Label9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label9;
+        
+        /// <summary>
+        /// lblKljucneRijeci control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKljucneRijeci;
+        
+        /// <summary>
         /// gvPitanjaOdgovori control.
         /// </summary>
         /// <remarks>

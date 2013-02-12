@@ -17,6 +17,7 @@ namespace KMWeb.Administration
 {
     public partial class NewArticle : System.Web.UI.Page
     {
+        int LastId = 0;
         static string connStr = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
         SqlConnection connection = new SqlConnection(connStr);
         string KljucnaRijec1 = "";
@@ -39,7 +40,7 @@ namespace KMWeb.Administration
             // UNOS NOVOG CLANKA
             try
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Clanci (Naslov, Sadrzaj, IdKategorija,IdKorisnik,DatumKreiranja) VALUES (@Naslov, @Sadrzaj, @IdKategorija, @IdKorisnik,@DatumKreiranja)");
+                SqlCommand cmd = new SqlCommand("INSERT INTO Clanci (Naslov, Sadrzaj, IdKategorija,IdKorisnik,DatumKreiranja) VALUES (@Naslov, @Sadrzaj, @IdKategorija, @IdKorisnik,@DatumKreiranja); SELECT SCOPE_IDENTITY();");
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = connection;
                 cmd.Parameters.AddWithValue("@Naslov", txtNaslov.Text);
@@ -49,10 +50,12 @@ namespace KMWeb.Administration
                 cmd.Parameters.AddWithValue("@DatumKreiranja", DateTime.Now.Date.ToShortDateString());
 
                 connection.Open();
-                cmd.ExecuteNonQuery();
-                
-                
+                //cmd.exExecuteNonQuery();
+                LastId = Convert.ToInt16(cmd.ExecuteScalar());
+
                 MessageBox.Show("Članak uspješno unesen","Important Message");
+                connection.Close();
+                insertKljucneRijeci();
             }
             catch (Exception ex) { MessageBox.Show("Članak nije unesen!", "Important Message"); }
 
@@ -112,17 +115,18 @@ namespace KMWeb.Administration
             FillDropDownList();
         }
 
-        protected void Button3_Click1(object sender, EventArgs e)
+        private void insertKljucneRijeci() 
         {
             //Unos Kljucnih rijeci
-
             try
             {
                 SqlCommand cmd = new SqlCommand("InsertKljucneRijeci");
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Connection = connection;
 
-                if (txtKljucnaRijec1.Text!="")
+                cmd.Parameters.AddWithValue("@IdArticle", LastId);
+
+                if (txtKljucnaRijec1.Text != "")
                     cmd.Parameters.AddWithValue("@KljucnaRijec1", txtKljucnaRijec1.Text);
                 else
                     cmd.Parameters.AddWithValue("@KljucnaRijec1", null);
@@ -180,6 +184,11 @@ namespace KMWeb.Administration
             }
             catch (Exception ex) { MessageBox.Show("Kljucne rijeci NISU unesene.", "Important Message"); }
             finally { connection.Close(); }
+        }
+
+        protected void Button3_Click1(object sender, EventArgs e)
+        {
+            insertKljucneRijeci();
 
         }
     }

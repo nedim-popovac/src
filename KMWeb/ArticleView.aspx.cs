@@ -48,8 +48,40 @@ namespace KMWeb
             }
 
             BindData(Convert.ToInt32(Article));
-
+            lblKljucneRijeci.Text = "";
+            prikaziKljucneRijeci();
             connection.Close();
+
+        }
+
+        private void prikaziKljucneRijeci()
+        { 
+          string Article = Request.QueryString["ArticleId"];
+          try
+          {
+              SqlCommand cmdKljucneRijeci = new SqlCommand("spKljucneRijeci");
+              cmdKljucneRijeci.CommandType = CommandType.StoredProcedure;
+              cmdKljucneRijeci.Connection = connection;
+
+              cmdKljucneRijeci.Parameters.AddWithValue("@IdArticle", Convert.ToInt32(Article));
+
+              connection.Open();
+              SqlDataAdapter daKljucneRijeci = new SqlDataAdapter(cmdKljucneRijeci);
+              SqlDataReader readerKljucneRijeci = cmdKljucneRijeci.ExecuteReader();
+              while (readerKljucneRijeci.Read())
+              {
+                  lblKljucneRijeci.Text = lblKljucneRijeci.Text + "  -   " + readerKljucneRijeci["KljucnaRijec"].ToString()+ "" ;
+                  //lblBrojOcjena.Text = readerBrojPitanja["BrojOcjena"].ToString();
+              }
+              readerKljucneRijeci.Close();
+
+             // connection.Open();
+              //cmdKljucneRijeci.ExecuteNonQuery();
+
+              
+          }
+          catch (Exception ex) { MessageBox.Show("Greska!", "Important Message"); }
+          finally { connection.Close(); }
 
         }
 
@@ -76,9 +108,6 @@ namespace KMWeb
                 //lblBrojOcjena.Text = readerBrojPitanja["BrojOcjena"].ToString();
             }
             readerBrojPitanja.Close();
-           
-
-
     }
 
         public void BindData(int IdClanak)
