@@ -57,7 +57,10 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Administration\AdministratorHome.aspx" />
+    <Content Include="Administration\CompareRevision.aspx" />
     <Content Include="Administration\NewArticle.aspx" />
+    <Content Include="Administration\NewRevision.aspx" />
     <Content Include="App_Data\KMDatabase.mdf" />
     <Content Include="App_Data\KMDatabase_log.ldf">
       <DependentUpon>KMDatabase.mdf</DependentUpon>
@@ -115,12 +118,33 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administration\AdministratorHome.aspx.cs">
+      <DependentUpon>AdministratorHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\AdministratorHome.aspx.designer.cs">
+      <DependentUpon>AdministratorHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\CompareRevision.aspx.cs">
+      <DependentUpon>CompareRevision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\CompareRevision.aspx.designer.cs">
+      <DependentUpon>CompareRevision.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\NewArticle.aspx.cs">
       <DependentUpon>NewArticle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Administration\NewArticle.aspx.designer.cs">
       <DependentUpon>NewArticle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\NewRevision.aspx.cs">
+      <DependentUpon>NewRevision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\NewRevision.aspx.designer.cs">
+      <DependentUpon>NewRevision.aspx</DependentUpon>
     </Compile>
     <Compile Include="ArticleView.aspx.cs">
       <DependentUpon>ArticleView.aspx</DependentUpon>

@@ -45,8 +45,9 @@
             </div>
             <div class="right">
                 <asp:Label ID="Label1" runat="server" Text="Administracija:  "></asp:Label>
-                <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click1">Novi Članak</asp:LinkButton>
-               </div>
+                <asp:LinkButton ID="btnAdminHome" runat="server" onclick="btnAdminHome_Click">Home</asp:LinkButton>
+&nbsp;<asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click1">Novi Članak</asp:LinkButton>
+               &nbsp;</div>
             
            </div>
            <div class="clear">

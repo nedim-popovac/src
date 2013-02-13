@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ArticleView.aspx.cs" Inherits="KMWeb.ArticleView" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-  <style type="text/css">
+    <style type="text/css">
   .SelectedRowStyle
 {
     background-color: Yellow;
@@ -62,6 +62,13 @@
                 <br />
                 <asp:Label ID="Label7" runat="server" Text="Broj pitanja: "></asp:Label>
                 <asp:Label ID="lblBrojPitanja" runat="server" Text="-"></asp:Label>
+                <br />
+                <br />
+                <br />
+                <asp:LinkButton ID="btnEditArticle" runat="server" 
+                    onclick="btnEditArticle_Click">Uredi članak</asp:LinkButton>
+                <br />
+                <br />
             </td>
             <td>
                 &nbsp;</td>

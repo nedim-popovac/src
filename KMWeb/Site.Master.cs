@@ -18,5 +18,11 @@ namespace KMWeb
         {
             Response.Redirect("~/Administration/NewArticle.aspx");
         }
+
+        protected void btnAdminHome_Click(object sender, EventArgs e)
+        {
+            int userId = 1;  //Useti iz sesije
+            Response.Redirect("~/Administration/AdministratorHome.aspx?UserID=" + userId);
+        }
     }
 }

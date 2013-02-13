@@ -415,5 +415,11 @@ namespace KMWeb
             btnUndo.Enabled = false;
         }
 
+        protected void btnEditArticle_Click(object sender, EventArgs e)
+        {
+            string Article = Request.QueryString["ArticleId"];
+            Response.Redirect("~/Administration/NewRevision.aspx?ArticleId="+Article);
+        }
+
     }
 }

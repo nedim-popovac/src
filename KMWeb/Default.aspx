@@ -45,7 +45,7 @@
                 <asp:HyperLink ID="HyperLinkKM" runat="server">KNOWLEDGE MANAGEMENT</asp:HyperLink>
             </td>
             <td>
-                <asp:HyperLink ID="HyperLinkWEBP" runat="server">WEB TEHNOLOGIJE&amp;PRPGRAMIRANJE</asp:HyperLink>
+                <asp:HyperLink ID="HyperLinkWEBP" runat="server">WEB TEHNOLOGIJE&amp;PROGRAMIRANJE</asp:HyperLink>
             </td>
             <td>
                 <asp:HyperLink ID="HyperLinkStatistika" runat="server">STATISTIKA</asp:HyperLink>
