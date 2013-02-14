@@ -22,28 +22,34 @@ namespace KMWeb
         {
 
             Directory directory = FSDirectory.Open("E:\\GitHub\\LuceneIndex");
+            Analyzer analyzer = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
+            IndexWriter writer = new IndexWriter(directory, analyzer,IndexWriter.MaxFieldLength.UNLIMITED);
+
+            //Directory directory = FSDirectory.Open("E:\\GitHub\\LuceneIndex");
 
 
-            Analyzer analyzer = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_29);
+            //Analyzer analyzer = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_29);
 
-            var writer = new IndexWriter(directory, analyzer,
-                                         IndexWriter.MaxFieldLength.UNLIMITED);
+            //var writer = new IndexWriter(directory, analyzer, IndexWriter.MaxFieldLength.UNLIMITED);
 
+            Document doc = new Document();
+            
+            //doc.Add(new Field("postBody", text, Field.Store.YES, Field.Index.TOKENIZED));
+            
 
+           // var doc = new Document();
 
-            var doc = new Document();
+            //doc.Add(new Field("id", "1", Field.Store.YES, Field.Index.NO));
 
-            doc.Add(new Field("id", "1", Field.Store.YES, Field.Index.NO));
+           // doc.Add(new Field("postBody", "Lorem ipsum", Field.Store.YES,
+             //                  Field.Index.ANALYZED));
 
-            doc.Add(new Field("postBody", "Lorem ipsum", Field.Store.YES,
-                               Field.Index.ANALYZED));
-
-            doc.Add(new Field("id", "2", Field.Store.YES, Field.Index.NO));
+            doc.Add(new Field("id", "1", Field.Store.YES, Field.Index.ANALYZED));
 
             doc.Add(new Field("postBody", "brazil", Field.Store.YES,
                                Field.Index.ANALYZED));
 
-            doc.Add(new Field("id", "3", Field.Store.YES, Field.Index.NO));
+            doc.Add(new Field("id", "2", Field.Store.YES, Field.Index.ANALYZED));
 
             doc.Add(new Field("postBody", "argentina", Field.Store.YES,
                                Field.Index.ANALYZED));
@@ -52,7 +58,7 @@ namespace KMWeb
 
 
             writer.Optimize();
-
+           
             writer.Commit();
 
             writer.Dispose();
